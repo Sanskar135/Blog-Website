@@ -1,0 +1,19 @@
+<%- include('partials/header'); -%>
+
+<section class="title-section">
+  <h1 class="title-heading">Home</h1>
+  <p class="title-content"><%= homeStartingContent %> </p>
+</section>
+
+<section id="posts">
+  <% posts.forEach(post => { %>
+  <h3 class="blogHeading"><a class="blogLink" href="/<%= post.title %>"><%= post.title %></a></h3>
+  <% if (post.content.length > 99) { %>
+  <p><%= post.content.substring(0, 100) + "..." %><a href="/<%= post.title %>">read more</a></p>
+  <% } else{ %>
+  <p><%= post.content%>.</p>
+  <% } %>
+  <% }); %>
+</section>
+
+<%- include('partials/footer'); -%>
